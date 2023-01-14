@@ -44,15 +44,15 @@ FROM "ADDRESS"]]>
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TITLE]]></text>
+					<text><![CDATA[First Report]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="6455d300-073e-4d2c-bab0-7bf880953fee"/>
-					<textElement textAlignment="Right">
-						<font size="14" isBold="false"/>
+				<textField>
+					<reportElement x="415" y="34" width="100" height="30" forecolor="#FAF7F7" uuid="8f0d8be9-e3ac-4b12-8fd5-e9da9a8a4ad9"/>
+					<textElement>
+						<font size="14"/>
 					</textElement>
-					<text><![CDATA[Add a description here]]></text>
-				</staticText>
+					<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</title>
