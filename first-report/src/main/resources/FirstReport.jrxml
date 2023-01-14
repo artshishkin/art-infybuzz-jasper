@@ -8,27 +8,27 @@
 		<![CDATA[SELECT *
 FROM "ADDRESS"]]>
 	</queryString>
-	<field name="ID" class="java.lang.Integer">
+	<field name="id" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.name" value="ID"/>
 		<property name="com.jaspersoft.studio.field.label" value="ID"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
 	</field>
-	<field name="FIRSTNAME" class="java.lang.String">
+	<field name="firstName" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="FIRSTNAME"/>
 		<property name="com.jaspersoft.studio.field.label" value="FIRSTNAME"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
 	</field>
-	<field name="LASTNAME" class="java.lang.String">
+	<field name="lastName" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="LASTNAME"/>
 		<property name="com.jaspersoft.studio.field.label" value="LASTNAME"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
 	</field>
-	<field name="STREET" class="java.lang.String">
+	<field name="street" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="STREET"/>
 		<property name="com.jaspersoft.studio.field.label" value="STREET"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
 	</field>
-	<field name="CITY" class="java.lang.String">
+	<field name="city" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="CITY"/>
 		<property name="com.jaspersoft.studio.field.label" value="CITY"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
@@ -124,7 +124,7 @@ FROM "ADDRESS"]]>
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight">
 				<reportElement x="111" y="0" width="111" height="20" uuid="de7566ae-c39e-4ad8-88a8-0d81c71ec9d7">
@@ -133,7 +133,7 @@ FROM "ADDRESS"]]>
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{FIRSTNAME}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight">
 				<reportElement x="222" y="0" width="111" height="20" uuid="2a9b79ce-0b6c-4667-89eb-53685911e73b">
@@ -142,7 +142,7 @@ FROM "ADDRESS"]]>
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{LASTNAME}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight">
 				<reportElement x="333" y="0" width="111" height="20" uuid="3bf5fbe3-3ee4-4375-973f-d97877758399">
@@ -151,7 +151,7 @@ FROM "ADDRESS"]]>
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{STREET}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{street}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight">
 				<reportElement x="444" y="0" width="111" height="20" uuid="1c4a82ee-a874-4c5c-ac72-789c4ac3eddc">
@@ -160,7 +160,7 @@ FROM "ADDRESS"]]>
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{CITY}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
