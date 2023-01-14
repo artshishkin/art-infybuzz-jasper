@@ -121,7 +121,7 @@ FROM "ADDRESS"]]>
 				<reportElement x="0" y="0" width="111" height="20" uuid="1e42f164-fe04-4b37-9bdd-910bae7551ba">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="da14b983-afc3-4144-a525-256e785227c0"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
@@ -130,7 +130,7 @@ FROM "ADDRESS"]]>
 				<reportElement x="111" y="0" width="111" height="20" uuid="de7566ae-c39e-4ad8-88a8-0d81c71ec9d7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="16bbe6ec-0b0b-455e-bf6c-649c15ae8f7b"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
@@ -139,7 +139,7 @@ FROM "ADDRESS"]]>
 				<reportElement x="222" y="0" width="111" height="20" uuid="2a9b79ce-0b6c-4667-89eb-53685911e73b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f07fdffe-8046-4391-a984-bd8636daf35e"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
@@ -148,7 +148,7 @@ FROM "ADDRESS"]]>
 				<reportElement x="333" y="0" width="111" height="20" uuid="3bf5fbe3-3ee4-4375-973f-d97877758399">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="605ee4b1-c8f2-49d1-819b-9ff1d29005d8"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{street}]]></textFieldExpression>
@@ -157,7 +157,7 @@ FROM "ADDRESS"]]>
 				<reportElement x="444" y="0" width="111" height="20" uuid="1c4a82ee-a874-4c5c-ac72-789c4ac3eddc">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="56eb2bdb-ae13-4ac6-ac69-a2d269453b06"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
