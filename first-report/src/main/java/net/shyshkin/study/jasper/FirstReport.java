@@ -1,10 +1,12 @@
 package net.shyshkin.study.jasper;
 
 import com.github.javafaker.Faker;
+import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.shyshkin.study.jasper.model.Student;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -22,7 +24,7 @@ public class FirstReport {
 //            String reportPath = "C:\\Users\\Admin\\IdeaProjects\\Study\\Infybuzz\\art-infybuzz-jasper\\first-report\\src\\main\\resources\\FirstReport.jrxml";
             InputStream resourceAsStream = FirstReport.class.getClassLoader().getResourceAsStream("FirstReport.jrxml");
 
-            Map<String, Object> parameters = Map.of("studentName", "Art");
+            Map<String, Object> parameters = new HashMap<>(Map.of("studentName", "Art"));
 
             List<Student> students = LongStream.rangeClosed(1, 10)
                     .boxed()
@@ -38,8 +40,15 @@ public class FirstReport {
 
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(students);
 
+            JasperReport report = JasperCompileManager.compileReport(resourceAsStream);
+            JasperPrint print = JasperFillManager.fillReport(report, parameters, dataSource);
+            String destinationFile = "output/students.pdf";
+            JasperExportManager.exportReportToPdfFile(print, destinationFile);
+
+            System.out.println("Report Created...");
 
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("Exception while creating report");
         }
     }
