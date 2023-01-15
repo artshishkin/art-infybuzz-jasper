@@ -33,6 +33,8 @@
 		<queryString>
 			<![CDATA[]]>
 		</queryString>
+		<field name="subjectName" class="java.lang.String"/>
+		<field name="marksObtained" class="java.lang.Long"/>
 	</subDataset>
 	<parameter name="studentName" class="java.lang.String"/>
 	<queryString>
@@ -92,13 +94,13 @@
 					<datasetRun subDataset="Dataset1" uuid="cc14ed84-37ed-44b3-80a3-198ce994c283">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="70" uuid="2e820a44-2469-4263-bfb2-53315c3c2523">
+					<jr:column width="240" uuid="2e820a44-2469-4263-bfb2-53315c3c2523">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
 						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
 						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement style="Table_TD" x="0" y="0" width="70" height="30" uuid="1e24c545-d652-4dfb-86be-4ef2d102248c">
+								<reportElement style="Table_TD" x="0" y="0" width="240" height="30" uuid="1e24c545-d652-4dfb-86be-4ef2d102248c">
 									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 								</reportElement>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -108,9 +110,9 @@
 						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="70" height="30" uuid="dbbbfeb4-b032-47c0-bb7e-0c799e01254e"/>
+								<reportElement x="0" y="0" width="240" height="30" uuid="dbbbfeb4-b032-47c0-bb7e-0c799e01254e"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{subjectName}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -130,7 +132,7 @@
 							<textField>
 								<reportElement x="0" y="0" width="90" height="30" uuid="e646c7f5-b304-4975-9cd7-47e0329cfd05"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{marksObtained}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

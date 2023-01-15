@@ -2,6 +2,7 @@ package net.shyshkin.study.jasper;
 
 import net.shyshkin.study.jasper.service.FirstReportService;
 import net.shyshkin.study.jasper.service.ReportService;
+import net.shyshkin.study.jasper.service.SubjectReportService;
 
 public class FirstReport {
 
@@ -11,6 +12,9 @@ public class FirstReport {
 
             ReportService firstReportService = new FirstReportService();
             firstReportService.generate();
+
+            ReportService subjectReportService = new SubjectReportService();
+            subjectReportService.generate();
 
         } catch (Exception e) {
             e.printStackTrace();
