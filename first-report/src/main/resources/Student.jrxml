@@ -45,6 +45,8 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
+	<field name="subjectName" class="java.lang.String"/>
+	<field name="marksObtained" class="java.lang.Long"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>

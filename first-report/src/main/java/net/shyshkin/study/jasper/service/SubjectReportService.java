@@ -35,8 +35,10 @@ public class SubjectReportService implements ReportService {
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(subjects);
         parameters.put("tableData", dataSource);
 
+        JRBeanCollectionDataSource chartDataSource = new JRBeanCollectionDataSource(subjects);
+
         JasperReport report = JasperCompileManager.compileReport(resourceAsStream);
-        JasperPrint print = JasperFillManager.fillReport(report, parameters, new JREmptyDataSource());
+        JasperPrint print = JasperFillManager.fillReport(report, parameters, chartDataSource);
         String destinationFile = "output/subjects.pdf";
         JasperExportManager.exportReportToPdfFile(print, destinationFile);
 
