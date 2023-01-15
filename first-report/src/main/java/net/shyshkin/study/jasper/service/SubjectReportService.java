@@ -1,9 +1,7 @@
 package net.shyshkin.study.jasper.service;
 
 import com.github.javafaker.Faker;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.shyshkin.study.jasper.FirstReport;
 import net.shyshkin.study.jasper.model.Subject;
@@ -25,7 +23,7 @@ public class SubjectReportService implements ReportService {
 
         Map<String, Object> parameters = new HashMap<>(Map.of("studentName", "Arina"));
 
-        var subjects = LongStream.rangeClosed(1, 10)
+        var subjects = LongStream.rangeClosed(1, 30)
                 .boxed()
                 .map(i -> Subject.builder()
                         .subjectName(FAKER.programmingLanguage().name())
@@ -35,11 +33,12 @@ public class SubjectReportService implements ReportService {
                 .collect(Collectors.toList());
 
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(subjects);
+        parameters.put("tableData", dataSource);
 
         JasperReport report = JasperCompileManager.compileReport(resourceAsStream);
-//        JasperPrint print = JasperFillManager.fillReport(report, parameters, dataSource);
-//        String destinationFile = "output/subjects.pdf";
-//        JasperExportManager.exportReportToPdfFile(print, destinationFile);
+        JasperPrint print = JasperFillManager.fillReport(report, parameters, new JREmptyDataSource());
+        String destinationFile = "output/subjects.pdf";
+        JasperExportManager.exportReportToPdfFile(print, destinationFile);
 
         System.out.println("Subjects Report Created...");
 
