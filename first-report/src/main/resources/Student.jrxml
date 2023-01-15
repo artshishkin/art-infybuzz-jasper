@@ -35,6 +35,7 @@
 		</queryString>
 		<field name="subjectName" class="java.lang.String"/>
 		<field name="marksObtained" class="java.lang.Long"/>
+		<sortField name="marksObtained" order="Descending"/>
 	</subDataset>
 	<parameter name="studentName" class="java.lang.String"/>
 	<parameter name="tableData" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
