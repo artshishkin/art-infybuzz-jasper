@@ -2,9 +2,11 @@ package net.shyshkin.study.jasper;
 
 import com.github.javafaker.Faker;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.base.JRBaseTextField;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.shyshkin.study.jasper.model.Student;
 
+import java.awt.*;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
@@ -41,6 +43,11 @@ public class FirstReport {
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(students);
 
             JasperReport report = JasperCompileManager.compileReport(resourceAsStream);
+
+            JRBaseTextField stName = (JRBaseTextField) report.getTitle().getElementByKey("stName");
+            stName.setFontSize(20f);
+            stName.setForecolor(Color.RED);
+
             JasperPrint print = JasperFillManager.fillReport(report, parameters, dataSource);
             String destinationFile = "output/students.pdf";
             JasperExportManager.exportReportToPdfFile(print, destinationFile);

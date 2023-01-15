@@ -48,7 +48,7 @@ FROM "ADDRESS"]]>
 					<text><![CDATA[First Report]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="415" y="34" width="145" height="30" forecolor="#FAF7F7" uuid="8f0d8be9-e3ac-4b12-8fd5-e9da9a8a4ad9"/>
+					<reportElement key="stName" x="415" y="34" width="145" height="30" forecolor="#FAF7F7" uuid="8f0d8be9-e3ac-4b12-8fd5-e9da9a8a4ad9"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
