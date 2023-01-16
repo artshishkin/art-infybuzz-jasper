@@ -178,12 +178,12 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="295" splitType="Stretch">
+		<band height="597" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="295" backcolor="#74C2C2" uuid="0fac546d-0543-4ded-a083-2459b86bd0f3"/>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="597" backcolor="#74C2C2" uuid="0fac546d-0543-4ded-a083-2459b86bd0f3"/>
 				<pieChart>
 					<chart evaluationTime="Report">
-						<reportElement positionType="FixRelativeToBottom" x="79" y="0" width="330" height="295" uuid="473c94df-c152-45cd-9b70-eced526102b8"/>
+						<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="380" height="295" uuid="473c94df-c152-45cd-9b70-eced526102b8"/>
 						<chartTitle/>
 						<chartSubtitle/>
 						<chartLegend/>
@@ -199,6 +199,32 @@
 						<itemLabel/>
 					</piePlot>
 				</pieChart>
+				<bar3DChart>
+					<chart evaluationTime="Report">
+						<reportElement mode="Opaque" x="0" y="295" width="554" height="300" uuid="8bcc96f6-b96c-422a-80e8-f8c75fac56f7"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<categoryDataset>
+						<dataset resetType="Report"/>
+						<categorySeries>
+							<seriesExpression><![CDATA[$F{subjectName}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{subjectName}]]></categoryExpression>
+							<valueExpression><![CDATA[$F{marksObtained}]]></valueExpression>
+						</categorySeries>
+					</categoryDataset>
+					<bar3DPlot>
+						<plot/>
+						<itemLabel/>
+						<categoryAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+						</valueAxisFormat>
+					</bar3DPlot>
+				</bar3DChart>
 			</frame>
 		</band>
 	</summary>
