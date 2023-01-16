@@ -3,6 +3,9 @@ package net.shyshkin.study.jasper.service;
 import com.github.javafaker.Faker;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.shyshkin.study.jasper.FirstReport;
 import net.shyshkin.study.jasper.model.Subject;
 
@@ -44,6 +47,12 @@ public class SubjectReportService implements ReportService {
 
         destinationFile = "output/subjects.html";
         JasperExportManager.exportReportToHtmlFile(print, destinationFile);
+
+        destinationFile = "output/subjects.xlsx";
+        JRXlsxExporter exporter = new JRXlsxExporter();
+        exporter.setExporterInput(new SimpleExporterInput(print));
+        exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(destinationFile));
+        exporter.exportReport();
 
         System.out.println("Subjects Report Created...");
 
