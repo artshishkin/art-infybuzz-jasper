@@ -20,28 +20,18 @@ public class FirstReportService implements ReportService {
 
     private static final Faker FAKER = Faker.instance(Locale.ENGLISH);
 
+    private Map<String, Object> parameters;
+    private JasperReport report;
+    private JRBeanCollectionDataSource dataSource;
+
     @Override
     public void generate() throws JRException {
-        //            String reportPath = "C:\\Users\\Admin\\IdeaProjects\\Study\\Infybuzz\\art-infybuzz-jasper\\first-report\\src\\main\\resources\\FirstReport.jrxml";
-        InputStream resourceAsStream = FirstReport.class.getClassLoader().getResourceAsStream("FirstReport.jrxml");
 
-        Map<String, Object> parameters = new HashMap<>(Map.of("studentName", "Art"));
+        Map<String, Object> parameters = getParameters();
 
-        List<Student> students = LongStream.rangeClosed(1, 10)
-                .boxed()
-                .map(i -> Student.builder()
-                        .id(i)
-                        .firstName(FAKER.name().firstName())
-                        .lastName(FAKER.name().lastName())
-                        .street(FAKER.address().streetAddress())
-                        .city(FAKER.address().city())
-                        .build()
-                )
-                .collect(Collectors.toList());
+        JRBeanCollectionDataSource dataSource = getDataSource();
 
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(students);
-
-        JasperReport report = JasperCompileManager.compileReport(resourceAsStream);
+        JasperReport report = getReport();
 
         JRBaseTextField stName = (JRBaseTextField) report.getTitle().getElementByKey("stName");
         stName.setFontSize(20f);
@@ -55,4 +45,39 @@ public class FirstReportService implements ReportService {
 
     }
 
+    @Override
+    public JasperReport getReport() throws JRException {
+        if (report == null) {
+            InputStream resourceAsStream = FirstReport.class.getClassLoader().getResourceAsStream("FirstReport.jrxml");
+            report = JasperCompileManager.compileReport(resourceAsStream);
+        }
+        return report;
+    }
+
+    @Override
+    public Map<String, Object> getParameters() {
+        if (parameters == null) {
+            parameters = new HashMap<>(Map.of("studentName", "Art"));
+        }
+        return parameters;
+    }
+
+    @Override
+    public JRBeanCollectionDataSource getDataSource() {
+        if (dataSource == null) {
+            List<Student> students = LongStream.rangeClosed(1, 10)
+                    .boxed()
+                    .map(i -> Student.builder()
+                            .id(i)
+                            .firstName(FAKER.name().firstName())
+                            .lastName(FAKER.name().lastName())
+                            .street(FAKER.address().streetAddress())
+                            .city(FAKER.address().city())
+                            .build()
+                    )
+                    .collect(Collectors.toList());
+            dataSource = new JRBeanCollectionDataSource(students);
+        }
+        return dataSource;
+    }
 }

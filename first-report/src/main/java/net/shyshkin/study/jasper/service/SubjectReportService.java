@@ -20,6 +20,8 @@ public class SubjectReportService implements ReportService {
 
     private static final Faker FAKER = Faker.instance(Locale.ENGLISH);
 
+    private final ReportService subReportService = new FirstReportService();
+
     @Override
     public void generate() throws JRException {
         InputStream resourceAsStream = FirstReport.class.getClassLoader().getResourceAsStream("Student.jrxml");
@@ -41,6 +43,10 @@ public class SubjectReportService implements ReportService {
         JRBeanCollectionDataSource chartDataSource = new JRBeanCollectionDataSource(subjects);
 
         JasperReport report = JasperCompileManager.compileReport(resourceAsStream);
+
+        parameters.put("subReport", subReportService.getReport());
+        parameters.put("subDataSource", subReportService.getDataSource());
+
         JasperPrint print = JasperFillManager.fillReport(report, parameters, chartDataSource);
         String destinationFile = "output/subjects.pdf";
         JasperExportManager.exportReportToPdfFile(print, destinationFile);

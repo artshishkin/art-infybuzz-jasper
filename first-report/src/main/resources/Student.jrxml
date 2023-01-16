@@ -229,7 +229,7 @@
 				</bar3DChart>
 			</frame>
 			<subreport>
-				<reportElement x="0" y="602" width="555" height="200" uuid="013d0ffb-f036-4600-bdf2-fc7f193b6360"/>
+				<reportElement x="-20" y="602" width="595" height="200" uuid="013d0ffb-f036-4600-bdf2-fc7f193b6360"/>
 				<dataSourceExpression><![CDATA[$P{subDataSource}]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{subReport}]]></subreportExpression>
 			</subreport>
