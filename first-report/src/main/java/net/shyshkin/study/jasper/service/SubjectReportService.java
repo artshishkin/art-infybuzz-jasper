@@ -46,6 +46,7 @@ public class SubjectReportService implements ReportService {
 
         parameters.put("subReport", subReportService.getReport());
         parameters.put("subDataSource", subReportService.getDataSource());
+        parameters.put("subParameters", subReportService.getParameters());
 
         JasperPrint print = JasperFillManager.fillReport(report, parameters, chartDataSource);
         String destinationFile = "output/subjects.pdf";

@@ -44,6 +44,7 @@
 	<parameter name="tableData" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<parameter name="subReport" class="net.sf.jasperreports.engine.JasperReport"/>
 	<parameter name="subDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="subParameters" class="java.util.Map"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -230,6 +231,7 @@
 			</frame>
 			<subreport>
 				<reportElement x="-20" y="602" width="595" height="200" uuid="013d0ffb-f036-4600-bdf2-fc7f193b6360"/>
+				<parametersMapExpression><![CDATA[$P{subParameters}]]></parametersMapExpression>
 				<dataSourceExpression><![CDATA[$P{subDataSource}]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{subReport}]]></subreportExpression>
 			</subreport>
