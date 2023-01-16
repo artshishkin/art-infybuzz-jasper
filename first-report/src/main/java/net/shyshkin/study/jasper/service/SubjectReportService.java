@@ -23,10 +23,10 @@ public class SubjectReportService implements ReportService {
 
         Map<String, Object> parameters = new HashMap<>(Map.of("studentName", "Arina"));
 
-        var subjects = LongStream.rangeClosed(1, 30)
+        var subjects = LongStream.rangeClosed(1, 20)
                 .boxed()
                 .map(i -> Subject.builder()
-                        .subjectName(FAKER.programmingLanguage().name())
+                        .subjectName(FAKER.programmingLanguage().name() + i)
                         .marksObtained(FAKER.random().nextLong(100))
                         .build()
                 )
