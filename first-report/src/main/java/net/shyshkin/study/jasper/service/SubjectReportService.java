@@ -42,6 +42,9 @@ public class SubjectReportService implements ReportService {
         String destinationFile = "output/subjects.pdf";
         JasperExportManager.exportReportToPdfFile(print, destinationFile);
 
+        destinationFile = "output/subjects.html";
+        JasperExportManager.exportReportToHtmlFile(print, destinationFile);
+
         System.out.println("Subjects Report Created...");
 
     }
