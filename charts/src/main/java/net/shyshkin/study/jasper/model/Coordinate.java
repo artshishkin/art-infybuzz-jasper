@@ -11,34 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Coordinate {
 
-    private Double xVal;
-    private Double yVal;
+    private Double valueX;
+    private Double valueY;
     private String seriesName;
 
-    public Double getxVal() {
-        return xVal;
-    }
-
-    public Coordinate setxVal(Double xVal) {
-        this.xVal = xVal;
-        return this;
-    }
-
-    public Double getyVal() {
-        return yVal;
-    }
-
-    public Coordinate setyVal(Double yVal) {
-        this.yVal = yVal;
-        return this;
-    }
-
-    public String getSeriesName() {
-        return seriesName;
-    }
-
-    public Coordinate setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
-        return this;
-    }
 }

@@ -28,8 +28,8 @@ public class CoordinateReportService implements ReportService {
         var tableData = LongStream.rangeClosed(1, 20)
                 .boxed()
                 .map(i -> Coordinate.builder()
-                        .xVal(1.0 * i)
-                        .yVal(1.0 * FAKER.random().nextLong(100))
+                        .valueX(1.0 * i)
+                        .valueY(1.0 * FAKER.random().nextLong(100))
                         .seriesName(seriesName)
                         .build()
                 )
@@ -47,7 +47,7 @@ public class CoordinateReportService implements ReportService {
         String destinationFile = "output/coordinates.pdf";
         JasperExportManager.exportReportToPdfFile(print, destinationFile);
 
-        System.out.println("Subjects Report Created...");
+        System.out.println("Coordinates Report Created...");
 
     }
 

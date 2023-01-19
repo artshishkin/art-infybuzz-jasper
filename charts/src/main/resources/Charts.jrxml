@@ -34,8 +34,8 @@
 			<![CDATA[]]>
 		</queryString>
 		<field name="seriesName" class="java.lang.String"/>
-		<field name="xVal" class="java.lang.Double"/>
-		<field name="yVal" class="java.lang.Double"/>
+		<field name="valueX" class="java.lang.Double"/>
+		<field name="valueY" class="java.lang.Double"/>
 	</subDataset>
 	<parameter name="studentName" class="java.lang.String"/>
 	<parameter name="tableData" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
@@ -117,8 +117,8 @@
 						</dataset>
 						<xySeries>
 							<seriesExpression><![CDATA[$F{seriesName}]]></seriesExpression>
-							<xValueExpression><![CDATA[$F{xVal}]]></xValueExpression>
-							<yValueExpression><![CDATA[$F{yVal}]]></yValueExpression>
+							<xValueExpression><![CDATA[$F{valueX}]]></xValueExpression>
+							<yValueExpression><![CDATA[$F{valueY}]]></yValueExpression>
 						</xySeries>
 					</xyDataset>
 					<linePlot>
