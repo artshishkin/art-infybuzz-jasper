@@ -37,8 +37,16 @@
 		<field name="valueX" class="java.lang.Double"/>
 		<field name="valueY" class="java.lang.Double"/>
 	</subDataset>
+	<subDataset name="percentageDataset" uuid="a1573f52-9fc4-4d7c-bba6-0378843f35ad">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="category" class="java.lang.String"/>
+		<field name="value" class="java.lang.Double"/>
+	</subDataset>
 	<parameter name="studentName" class="java.lang.String"/>
 	<parameter name="tableData" class="java.util.List"/>
+	<parameter name="readyPercentageTableData" class="java.util.List"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -80,7 +88,7 @@
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="15" splitType="Stretch">
+		<band height="16" splitType="Stretch">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 		</band>
 	</detail>
@@ -99,9 +107,9 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="442" splitType="Stretch">
+		<band height="604" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="439" backcolor="#74C2C2" uuid="0fac546d-0543-4ded-a083-2459b86bd0f3"/>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="604" backcolor="#74C2C2" uuid="0fac546d-0543-4ded-a083-2459b86bd0f3"/>
 				<xyLineChart>
 					<chart evaluationTime="Report">
 						<reportElement mode="Opaque" x="0" y="0" width="555" height="200" uuid="58c3ab6e-b43e-48e0-ad09-2b2f26fa8237"/>
@@ -160,6 +168,36 @@
 						</valueAxisFormat>
 					</areaPlot>
 				</xyAreaChart>
+				<barChart>
+					<chart isShowLegend="false" evaluationTime="Report" customizerClass="net.shyshkin.study.jasper.customizer.PercentageGraphCustomizer">
+						<reportElement mode="Opaque" x="0" y="400" width="555" height="200" uuid="c461a281-ff62-4600-994a-a58a6f8290bc"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<categoryDataset>
+						<dataset resetType="Report">
+							<datasetRun subDataset="percentageDataset" uuid="2936e8d6-36b0-4a3b-b6a2-ec0d599ced4e">
+								<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{readyPercentageTableData})]]></dataSourceExpression>
+							</datasetRun>
+						</dataset>
+						<categorySeries>
+							<seriesExpression><![CDATA[$F{category}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{category}]]></categoryExpression>
+							<valueExpression><![CDATA[$F{value}]]></valueExpression>
+						</categorySeries>
+					</categoryDataset>
+					<barPlot isShowLabels="true" isShowTickMarks="false">
+						<plot orientation="Horizontal" backgroundAlpha="0.94"/>
+						<itemLabel/>
+						<categoryAxisFormat>
+							<axisFormat/>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat/>
+						</valueAxisFormat>
+					</barPlot>
+				</barChart>
 			</frame>
 		</band>
 	</summary>

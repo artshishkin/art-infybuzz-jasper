@@ -3,6 +3,7 @@ package net.shyshkin.study.jasper.service;
 import com.github.javafaker.Faker;
 import net.sf.jasperreports.engine.*;
 import net.shyshkin.study.jasper.model.Coordinate;
+import net.shyshkin.study.jasper.model.ReadyPercentage;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -34,9 +35,19 @@ public class CoordinateReportService implements ReportService {
                 )
                 .collect(Collectors.toList());
 
+        var readyPercentageTableData = LongStream.rangeClosed(1, 5)
+                .boxed()
+                .map(i -> ReadyPercentage.builder()
+                        .value(FAKER.random().nextLong(100))
+                        .category("Cat" + i)
+                        .build()
+                )
+                .collect(Collectors.toList());
+
 //        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(tableData, false);
 //        parameters.put("tableData", dataSource);
         parameters.put("tableData", tableData);
+        parameters.put("readyPercentageTableData", readyPercentageTableData);
 
 //        JRBeanCollectionDataSource chartDataSource = new JRBeanCollectionDataSource(subjects);
 
