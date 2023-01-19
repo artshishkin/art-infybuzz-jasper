@@ -29,7 +29,7 @@ public class CoordinateReportService implements ReportService {
                 .map(i -> Coordinate.builder()
                         .valueX(i)
                         .valueY(FAKER.random().nextLong(100))
-                        .seriesName(seriesName)
+                        .seriesName(seriesName + i % 4)
                         .build()
                 )
                 .collect(Collectors.toList());
