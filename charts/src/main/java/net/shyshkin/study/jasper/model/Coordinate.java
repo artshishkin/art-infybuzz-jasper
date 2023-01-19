@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Coordinate {
 
-    private Double valueX;
-    private Double valueY;
+    private double valueX;
+    private double valueY;
     private String seriesName;
 
 }
