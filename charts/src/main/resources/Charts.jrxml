@@ -38,7 +38,7 @@
 		<field name="valueY" class="java.lang.Double"/>
 	</subDataset>
 	<parameter name="studentName" class="java.lang.String"/>
-	<parameter name="tableData" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="tableData" class="java.util.List"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -104,15 +104,15 @@
 				<reportElement mode="Opaque" x="0" y="0" width="555" height="439" backcolor="#74C2C2" uuid="0fac546d-0543-4ded-a083-2459b86bd0f3"/>
 				<xyLineChart>
 					<chart evaluationTime="Report">
-						<reportElement mode="Opaque" x="0" y="0" width="555" height="200" uuid="aa18218d-d760-497b-87ca-a54ff13db668"/>
+						<reportElement mode="Opaque" x="0" y="0" width="555" height="200" uuid="58c3ab6e-b43e-48e0-ad09-2b2f26fa8237"/>
 						<chartTitle/>
 						<chartSubtitle/>
 						<chartLegend/>
 					</chart>
 					<xyDataset>
 						<dataset resetType="Report">
-							<datasetRun subDataset="chartDataset" uuid="7193bfa3-11e6-4ca5-8f26-3b4eaf9c5f05">
-								<dataSourceExpression><![CDATA[$P{tableData}]]></dataSourceExpression>
+							<datasetRun subDataset="chartDataset" uuid="1d3aa7b8-6238-43c8-884d-386548e437db">
+								<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{tableData})]]></dataSourceExpression>
 							</datasetRun>
 						</dataset>
 						<xySeries>
@@ -131,6 +131,35 @@
 						</valueAxisFormat>
 					</linePlot>
 				</xyLineChart>
+				<xyAreaChart>
+					<chart evaluationTime="Report">
+						<reportElement mode="Opaque" x="0" y="200" width="555" height="200" uuid="b3fd5f35-39e6-4bdb-8ade-707b47cc0a2d"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<xyDataset>
+						<dataset resetType="Report">
+							<datasetRun subDataset="chartDataset" uuid="45b1edce-443a-4665-946f-abcbc025b3cc">
+								<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{tableData})]]></dataSourceExpression>
+							</datasetRun>
+						</dataset>
+						<xySeries autoSort="true">
+							<seriesExpression><![CDATA[$F{seriesName}]]></seriesExpression>
+							<xValueExpression><![CDATA[$F{valueX}]]></xValueExpression>
+							<yValueExpression><![CDATA[$F{valueY}]]></yValueExpression>
+						</xySeries>
+					</xyDataset>
+					<areaPlot>
+						<plot/>
+						<categoryAxisFormat>
+							<axisFormat/>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat/>
+						</valueAxisFormat>
+					</areaPlot>
+				</xyAreaChart>
 			</frame>
 		</band>
 	</summary>

@@ -2,7 +2,6 @@ package net.shyshkin.study.jasper.service;
 
 import com.github.javafaker.Faker;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.shyshkin.study.jasper.model.Coordinate;
 
 import java.io.InputStream;
@@ -35,8 +34,9 @@ public class CoordinateReportService implements ReportService {
                 )
                 .collect(Collectors.toList());
 
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(tableData, false);
-        parameters.put("tableData", dataSource);
+//        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(tableData, false);
+//        parameters.put("tableData", dataSource);
+        parameters.put("tableData", tableData);
 
 //        JRBeanCollectionDataSource chartDataSource = new JRBeanCollectionDataSource(subjects);
 
